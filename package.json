@@ -1,0 +1,52 @@
+{
+  "name": "11ty-starter-kit",
+  "version": "1.0.0",
+  "description": "Стартовые репозиторий для разработки сайтов на 11ty",
+  "private": "true",
+  "author": "Arthur Satarov",
+  "license": "MIT",
+  "homepage": "https://github.com/arthursatarov/11ty-starter-kit#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthursatarov/11ty-starter-kit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arthursatarov/11ty-starter-kit/issues"
+  },
+  "scripts": {
+    "dev:postcss": "postcss src/assets/styles/index.css -o _site/styles/styles.css --watch",
+    "dev:webpack": "webpack --mode development",
+    "dev:eleventy": "eleventy --serve --quiet",
+    "dev": "npm-run-all clean --parallel dev:* --print-label",
+    "build:postcss": "NODE_ENV=production postcss src/assets/styles/index.css -o _site/styles/styles.css",
+    "build:webpack": "webpack --mode production",
+    "build:eleventy": "NODE_ENV=production eleventy",
+    "build": "run-s clean build:* --print-label",
+    "lint:html": "node-w3c-validator -i ./dist/**/*.html -f lint -evH",
+    "lint:stylelint": "stylelint src/assets/styles/**/*.css",
+    "lint:eslint": "eslint src/assets/scripts/**/*.js",
+    "lint": "run-s lint:* -c --print-label",
+    "clean": "rimraf _site",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^1.0.2",
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "babel-loader": "^8.2.5",
+    "eslint": "^8.22.0",
+    "html-minifier": "^4.0.0",
+    "node-w3c-validator": "^2.0.2",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.16",
+    "postcss-cli": "^10.0.0",
+    "postcss-csso": "^6.0.1",
+    "postcss-import": "^14.1.0",
+    "postcss-sort-media-queries": "^4.2.1",
+    "rimraf": "^3.0.2",
+    "stylelint": "^14.10.0",
+    "stylelint-order": "^5.0.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}

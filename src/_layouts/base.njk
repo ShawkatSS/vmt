@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ lang or meta.lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <title>
+    {{ title or meta.title }}{{ meta.titleSuffix }}
+  </title>
+
+  <meta name="description" content="{{ description or meta.description }}">
+  <meta name="theme-color" content="#ffffff">
+
+  {% include "head/open-graph.njk" %}
+  {% include "head/favicon.njk" %}
+
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body class="page">
+
+  {% include "header/header.njk" %}
+
+  <main class="[ page__content ] [ content ]">
+    {% block content %}
+      {{ content | safe }}
+    {% endblock %}
+  </main>
+
+  {% include "footer/footer.njk" %}
+
+  <script src="scripts/scripts.js" type="module"></script>
+</body>
+</html>
